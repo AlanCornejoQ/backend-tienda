@@ -1,5 +1,5 @@
 from inventario.gestor import GestorInventario
-
+from notificaciones.observer import SujetoObservable
 # Base del patron Command
 class OrdenCommand:
     def ejecutar(self):
@@ -23,10 +23,14 @@ class OrdenCompra:
         else:
             return f"No hay stock suficiente para {nombre} (stock disponible: {stock})"
 
-# Comando concreto que ejecuta la orden
+# Comando concreto que ejecuta la orden y notifica
 class EjecutarOrden(OrdenCommand):
-    def __init__(self, orden):
+    def __init__(self, orden, sujeto_observable: SujetoObservable = None):
         self.orden = orden
+        self.observable = sujeto_observable
 
     def ejecutar(self):
-        return self.orden.procesar()
+        resultado = self.orden.procesar()
+        if self.observable:
+            self.observable.notificar(resultado)
+        return resultado
