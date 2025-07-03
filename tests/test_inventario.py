@@ -19,8 +19,8 @@ libro = ProductoFactory.crear_producto(
 
 # Acceder al singleton
 inventario = GestorInventario.get_instancia()
-inventario.agregar_producto(libro)
+inventario.agregar_producto(libro,cantidad=5)
 
 # Verificar
-for p in inventario.listar_productos():
-    print(p.mostrar_detalle())
+for p,c in inventario.listar_productos():
+    print(f"{p.mostrar_detalle()} - Stock: {c}")
