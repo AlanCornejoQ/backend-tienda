@@ -83,6 +83,9 @@ En este proyecto se implementaron varios patrones de diseño para estructurar el
 - **YAGNI:** Solo se implementó lo necesario para el funcionamiento actual del sistema.
 
 ---
+## Diagrama del Sistema
+![Diagrama UML del sistema](diagramaUML/UML1.png)
+
 ## Nota sobre archivos generados automáticamente
 
 Dado que uso Django como framework principal, hay varios archivos que fueron generados automáticamente al crear el proyecto y las apps (como `admin.py`, `apps.py`, `views.py`, `migrations/`, entre otros). Estos archivos no fueron modificados si no eran necesarios para la implementación de los patrones, pero se mantuvieron como parte de la estructura recomendada por Django
